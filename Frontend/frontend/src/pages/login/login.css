@@ -1,6 +1,112 @@
-form{
+/* form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+} */
+
+/* Full Page */
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #334155
+  );
+
+  font-family: Arial, sans-serif;
+}
+
+/* Login Box */
+.login-container form {
+  width: 350px;
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Heading */
+.login-container h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.login-container input {
+  padding: 14px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transition: 0.3s;
+}
+
+/* Placeholder */
+.login-container input::placeholder {
+  color: #cbd5e1;
+}
+
+/* Input Focus */
+.login-container input:focus {
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* Button */
+.login-container button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #38bdf8
+  );
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+/* Button Hover */
+.login-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 480px) {
+  .login-container form {
+    width: 90%;
+    padding: 25px;
+  }
 }
