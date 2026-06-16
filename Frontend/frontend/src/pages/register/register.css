@@ -99,7 +99,8 @@ button:hover {
 }
 
 /* Heading */
-.register-container h2 {
+.register-container h2,h1 {
+  font-family: Anthropic serif;
   color: white;
   font-size: 32px;
   margin-bottom: 20px;
