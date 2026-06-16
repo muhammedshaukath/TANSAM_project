@@ -55,6 +55,8 @@ function Register() {
 
   <div class="register-container">
 
+    <h1>To-do Task manager</h1>
+
    <h2>Register</h2>
 
    <form
