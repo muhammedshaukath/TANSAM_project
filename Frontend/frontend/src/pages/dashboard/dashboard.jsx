@@ -17,12 +17,12 @@ function Dashboard() {
 
     <div className="cards">
 
-      <div className="card-user">
+      <div className="card">
        <p>Total Users</p>
        <h2>10</h2>
       </div>
 
-      <div className="card-admin">
+      <div className="card">
        <p>Total Admins</p>
        <h2>2</h2>
       </div>
