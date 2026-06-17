@@ -10,13 +10,15 @@ function Sidebar() {
 
    <ul>
 
-    <li>Dashboard</li>
+    <a href="/dashboard">Dashboard</a>
 
-    <li>Users</li>
+    <a href="/roles">Roles</a>
 
-    <li>Admins</li>
+    <a href="/users">Users</a>
 
-    <li>Settings</li>
+    <a href="/admin">Admins</a>
+
+    <a href="/settings">Settings</a>
 
    </ul>
 

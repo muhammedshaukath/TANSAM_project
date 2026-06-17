@@ -19,22 +19,41 @@
 
 /* Remove default list style */
 .sidebar ul {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 0;
   margin: 0;
 }
 
-/* Sidebar menu items */
-.sidebar ul li {
-  padding: 15px;
-  margin-bottom: 10px;
-  background-color: #334155;
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 15px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect */
-.sidebar ul li:hover {
-  background-color: #475569;
+.sidebar a:hover {
+  background: #374151;
+  padding-left: 20px;
+}
+
+.sidebar a:active {
+  background: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar h3 {
+    font-size: 20px;
+  }
+
+  .sidebar a {
+    font-size: 14px;
+  }
 }

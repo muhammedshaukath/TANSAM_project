@@ -81,6 +81,12 @@ function Register() {
      onChange={handleChange}
     />
 
+    <select name="role" onChange={handleChange} required>
+      <option value="" hidden >Select your Role:</option>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
     <input
      name="age"
      placeholder="Age"

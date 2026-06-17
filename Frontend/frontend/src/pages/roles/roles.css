@@ -1,12 +1,4 @@
-/* form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} */
-
-/* Full Page */
-.login-container {
+.roles-container{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,38 +11,11 @@
     #1e293b,
     #334155
   );
-
-  font-family: Arial, sans-serif;
 }
 
-/* Login Box */
-.login-container form {
-  width: 350px;
-  padding: 35px;
-
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  transition: transform 0.5s ease-in-out; 
-}
-
-
-.register-container form:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
-}
 
 /* Heading */
-.login-container h2 {
+.roles-container h2 {
   font-family: serif;
   color: white;
   margin-bottom: 20px;
@@ -59,11 +24,12 @@
 }
 
 /* Input Fields */
-.login-container input {
+.roles-container input {
   padding: 14px;
   border: none;
   outline: none;
   border-radius: 12px;
+  width: 25%;
 
   background: rgba(255, 255, 255, 0.12);
   color: white;
@@ -75,22 +41,21 @@
 }
 
 /* Placeholder */
-.login-container input::placeholder {
+.roles-container input::placeholder {
   color: #cbd5e1;
 }
 
 /* Input Focus */
-.login-container input:focus {
+.roles-container input:focus {
   border: 1px solid #38bdf8;
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-/* Button */
-.login-container button {
+.roles-container button {
   padding: 14px;
+  width: 15%;
   border: none;
   border-radius: 12px;
-
   background: linear-gradient(
     90deg,
     #2563eb,
@@ -101,20 +66,12 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-
+  margin-top: 1%;
   transition: 0.3s ease;
 }
 
 /* Button Hover */
-.login-container button:hover {
+.roles-container button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
-}
-
-/* Mobile Responsive */
-@media screen and (max-width: 480px) {
-  .login-container form {
-    width: 90%;
-    padding: 25px;
-  }
 }

@@ -262,3 +262,136 @@ exports.dashboard = (req, res) => {
     });
 
 };
+
+exports.getUsers = (req,res)=>{
+
+    const sql =
+    "SELECT * FROM users";
+
+    db.query(sql,(err,result)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.status(200).json(result);
+
+    });
+
+};
+
+exports.getAdmins=(req,res)=>{
+
+ const sql =
+ "SELECT * FROM users WHERE role='admin'";
+
+ db.query(sql,(err,result)=>{
+
+  if(err){
+   return res.status(500).json(err);
+  }
+
+  res.status(200).json(result);
+
+ });
+
+};
+
+exports.getUsers = (req,res)=>{
+
+    const sql =
+    "SELECT * FROM users";
+
+    db.query(sql,(err,result)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.status(200).json(result);
+
+    });
+
+};
+
+exports.getAdmins=(req,res)=>{
+
+ const sql =
+ "SELECT * FROM users WHERE role='admin'";
+
+ db.query(sql,(err,result)=>{
+
+  if(err){
+   return res.status(500).json(err);
+  }
+
+  res.status(200).json(result);
+
+ });
+
+};
+
+exports.getDashboard=(req,res)=>{
+
+ const sql=`
+ SELECT
+
+ (SELECT COUNT(*) FROM users)
+ AS totalUsers,
+
+ (SELECT COUNT(*) FROM users
+ WHERE role='admin')
+ AS totalAdmins
+ `;
+
+ db.query(sql,(err,result)=>{
+
+  if(err){
+   return res.status(500).json(err);
+  }
+
+  res.status(200).json(result[0]);
+
+ });
+
+};
+exports.getRoles = (req,res)=>{
+
+ const sql =
+ "SELECT * FROM role";
+
+ db.query(sql,(err,result)=>{
+
+   if(err){
+      return res.status(500).json(err);
+   }
+
+   res.json(result);
+
+ });
+
+};
+exports.addRole = (req,res)=>{
+
+ const { role_name } = req.body;
+
+ const sql =
+ "INSERT INTO role(role_name) VALUES(?)";
+
+ db.query(
+  sql,
+  [role_name],
+  (err,result)=>{
+
+    if(err){
+      return res.status(500).json(err);
+    }
+
+    res.json({
+      message:"Role Added"
+    });
+
+  }
+ );
+
+};

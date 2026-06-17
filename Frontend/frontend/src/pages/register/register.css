@@ -99,7 +99,8 @@ button:hover {
 }
 
 /* Heading */
-.register-container h2 {
+.register-container h2 ,h1{
+  font-family: serif;
   color: white;
   font-size: 32px;
   margin-bottom: 20px;
@@ -121,8 +122,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease-in-out; 
+}
+
+.register-container form:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
 }
 
 /* Input Fields */
@@ -133,7 +139,7 @@ button:hover {
   border-radius: 12px;
 
   background: rgba(255, 255, 255, 0.12);
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 15px;
 
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -194,6 +200,31 @@ button:hover {
 .register-container a:hover {
   text-decoration: underline;
 }
+
+.register-container select {
+  padding: 14px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.728);
+  font-size: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+}
+
+.register-container option{
+  color: black;
+}
+
+/* Input Focus */
+.role label:focus {
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
 
 /* Mobile Responsive */
 @media screen and (max-width: 480px) {

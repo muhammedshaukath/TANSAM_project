@@ -5,7 +5,13 @@ const router = express.Router();
 const {
     register,
     login,
-    dashboard
+    dashboard,
+    getUsers,
+    getAdmins,
+    getDashboard,
+    getRoutes,
+    getRoles,
+    addRole
 } = require("../controller/usercontroller");
 
 const authMiddleware =
@@ -20,5 +26,29 @@ router.get(
     authMiddleware,
     dashboard
 );
+
+router.get(
+    "/users",
+    authMiddleware,
+    getUsers
+)
+
+router.get(
+    "/admin",
+    authMiddleware,
+    getAdmins
+)
+
+router.get(
+    "/dashboard-count",
+    authMiddleware,
+    getDashboard
+)
+
+router.get(
+    "/roles",
+    authMiddleware,
+    getRoles
+)
 
 module.exports = router;
