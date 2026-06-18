@@ -16,7 +16,7 @@ function Sidebar() {
 
     <a href="/users">Users</a>
 
-    <a href="/admin">Admins</a>
+    <a href="/admindashboard">Admins</a>
 
     <a href="/settings">Settings</a>
 

@@ -1,4 +1,65 @@
 import "./users.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";  // useNavigate is a hook from react-router-dom that allows us to programmatically navigate to different routes in our application. We will use it to redirect the user to the login page after successful registration.
-import BASE_URL from "../../services/api";
+
+import { useEffect, useState } from "react";
+
+import Sidebar from "../../components/sidebar";
+import Header from "../../components/header";
+
+function Dashboard() {
+
+  const [count, setCount] = useState({
+    totalUsers: 0,
+    totalAdmins: 0
+  });
+
+  useEffect(() => {
+
+    fetch(
+      "http://localhost:3001/api/auth/users-count",
+      {
+        headers: {
+          authorization:
+            localStorage.getItem("token")
+        }
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCount(data);
+      });
+
+  }, []);
+
+  return (
+
+    <div className="layout">
+
+      <Sidebar />
+
+      <div className="content">
+
+        <Header />
+
+        <div className="cards">
+
+          <div className="card">
+            <p>Total Users</p>
+            <h2>{count.totalUsers}</h2>
+          </div>
+
+          <div className="card">
+            <p>Total Admins</p>
+            <h2>{count.totalAdmins}</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+export default Dashboard;
