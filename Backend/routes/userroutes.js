@@ -6,8 +6,8 @@ const {
     register,
     login,
     dashboard,
-    getUsers,
-    getAdmins,
+    getStudents,
+    getStaffs,
     getDashboard,
     getRoutes,
     getRoles,
@@ -28,15 +28,15 @@ router.get(
 );
 
 router.get(
-    "/users",
+    "/students",
     authMiddleware,
-    getUsers
+    getStudents
 )
 
 router.get(
-    "/admin",
+    "/staffs",
     authMiddleware,
-    getAdmins
+    getStaffs
 )
 
 router.get(

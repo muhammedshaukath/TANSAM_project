@@ -71,7 +71,7 @@ const handleSubmit = async (e) => {
 
     navigate("/admindashboard");
 
-  } else if (data.user.role === "user") {
+  } else if (data.user.role === "student") {
 
     navigate("/studentsdashboard");
 

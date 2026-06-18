@@ -1,29 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import {
  BrowserRouter,
  Routes,
@@ -38,6 +12,8 @@ import Admindashboard from "./pages/Adminpage/admindashboard/admindashboard"
 import Studentdashboard from "./pages/studentspage/studentdashboard/studentdashboard";
 import Principaldashboard from "./pages/principalpage/principaldashboard/principaldashboard";
 import Teacherdashboard from "./pages/teacherpage/teacherdashboard/teacherdashboard";
+import Admissions from "./pages/Adminpage/admissions/admissions";
+import Adminstaffs from "./pages/Adminpage/adminstaffs/adminstaffs";
 
 function App() {
 
@@ -90,6 +66,16 @@ function App() {
     <Route
       path="/teacherdashboard"
       element={<Teacherdashboard/>}
+    />
+    
+    <Route
+      path="/admissions"
+      element={<Admissions/>}
+    />
+    
+    <Route
+      path="/adminstaffs"
+      element={<Adminstaffs/>}
     />
 
    </Routes>
