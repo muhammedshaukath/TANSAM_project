@@ -1,0 +1,63 @@
+/* ==========================================
+   Admin Sidebar Styling
+   ========================================== */
+
+.principalsidebar {
+  width: 260px;
+  min-width: 260px;
+  background-color: #0f172a; /* Deep slate dark background */
+  color: #ffffff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px;
+  box-sizing: border-box;
+}
+
+/* Sidebar Branding Header */
+.principalsidebar h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #38bdf8; /* Vibrant sky-blue accent */
+  margin: 0 0 32px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation List Container */
+.principalsidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Creates consistent spacing between items */
+}
+
+/* Sidebar Links */
+.principalsidebar a {
+  color: #94a3b8; /* Muted gray text */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: block; /* Ensures the entire row area is clickable */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Interaction Effects */
+.principalsidebar a:hover {
+  background-color: #1e293b; /* Lighter slate background on hover */
+  color: #ffffff;            /* Brightens text on hover */
+  padding-left: 20px;        /* Subtle shift right effect */
+}
+
+/* Active Class Hint (For when you add routing highlights later) */
+.principalsidebar a.active {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+}

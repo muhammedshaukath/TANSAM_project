@@ -71,11 +71,23 @@ const handleSubmit = async (e) => {
 
     navigate("/admindashboard");
 
+  } else if (data.user.role === "user") {
+
+    navigate("/studentsdashboard");
+
+  } else if (data.user.role === "principal") {
+
+    navigate("/principaldashboard");
+
+  } else if (data.user.role === "teacher") {
+
+    navigate("/teacherdashboard");
+
   } else {
 
     navigate("/dashboard");
 
-  }
+  } 
 
 };
 
@@ -83,6 +95,7 @@ const handleSubmit = async (e) => {
 
   <div className="login-container"> 
 
+   <h1>School ERP Portal</h1>
    <h2>Login</h2>
 
    <form

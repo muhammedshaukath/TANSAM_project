@@ -131,6 +131,10 @@ button:hover {
   box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
 }
 
+.register-container form:focus{
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
 /* Input Fields */
 .register-container input {
   padding: 14px;

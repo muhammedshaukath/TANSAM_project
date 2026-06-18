@@ -55,7 +55,7 @@ function Register() {
 
   <div class="register-container">
 
-    <h1>To-do Task manager</h1>
+    <h1>School ERP Portal</h1>
 
    <h2>Register</h2>
 
@@ -84,6 +84,8 @@ function Register() {
     <select name="role" onChange={handleChange} required>
       <option value="" hidden >Select your Role:</option>
       <option value="user">User</option>
+      <option value="principal">Principal</option>
+      <option value="teacher">Teacher</option>
       <option value="admin">Admin</option>
     </select>
 

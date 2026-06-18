@@ -1,11 +1,14 @@
 import "./admindashboard.css";
+import Adminsidebar from "../adminsidebar/adminsidebar";
 import Header from "../../../components/header";
 
 function Admindashboard() {
 
   return (
+  <div className="layout">
+    <Adminsidebar />
 
-    <div className="layout">
+    <div className="content">
 
         <Header />
 
@@ -22,7 +25,7 @@ function Admindashboard() {
         </div> }
 
       </div>
-
+    </div>
   );
 
 }

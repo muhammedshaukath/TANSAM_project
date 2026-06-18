@@ -35,6 +35,9 @@ import Register from "./pages/register/register";
 import Dashboard from "./pages/dashboard/dashboard";
 import Roles from "./pages/roles/roles";
 import Admindashboard from "./pages/Adminpage/admindashboard/admindashboard"  
+import Studentdashboard from "./pages/studentspage/studentdashboard/studentdashboard";
+import Principaldashboard from "./pages/principalpage/principaldashboard/principaldashboard";
+import Teacherdashboard from "./pages/teacherpage/teacherdashboard/teacherdashboard";
 
 function App() {
 
@@ -46,7 +49,7 @@ function App() {
 
     <Route
       path="/"
-      element={<Register />}
+      element={<Login />}
     />
 
     <Route
@@ -72,6 +75,21 @@ function App() {
     <Route
       path="/admindashboard"
       element={<Admindashboard/>}
+    />
+
+    <Route
+      path="/studentdashboard"
+      element={<Studentdashboard/>}
+    />
+    
+    <Route
+      path="/principaldashboard"
+      element={<Principaldashboard/>}
+    />
+    
+    <Route
+      path="/teacherdashboard"
+      element={<Teacherdashboard/>}
     />
 
    </Routes>
