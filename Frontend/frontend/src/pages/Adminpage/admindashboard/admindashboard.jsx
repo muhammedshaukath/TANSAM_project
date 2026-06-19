@@ -49,6 +49,7 @@ function Admindashboard() {
 
           <div className="card">
             <p>Fee Pending</p>
+            <h2>-</h2>
           </div>
 
         </div> }
