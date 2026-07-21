@@ -1,7 +1,7 @@
 import "./adminstaffs.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";       // to redirect to login page after registration
-import BASE_URL from "../../../services/api.js";         
+import { useNavigate, Link } from "react-router-dom";
+import BASE_URL from "../../../services/api.js";
 
 function Adminstaffs() {
 
@@ -30,24 +30,24 @@ function Adminstaffs() {
 
    e.preventDefault();
 
-   const response =
-   await fetch(
-    `${BASE_URL}/adminstaffs`,
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(form)
+    const response = await fetch(
+     `${BASE_URL}/register`,
+     {
+       method:"POST",
+       headers:{
+         "Content-Type":"application/json"
+       },
+       body:JSON.stringify(form)
+     }
+    );
+
+    const data = await response.json();
+
+    alert(data.message || "Registration response received");
+
+    if (response.ok) {
+      navigate("/admindashboard");
     }
-   );
-
-   const data =
-   await response.json();
-
-   alert(data.message);
-
-   navigate("/");
 
  };
 
@@ -76,6 +76,7 @@ function Adminstaffs() {
     <input
      name="password"
      placeholder="Password"
+     type="password"
      onChange={handleChange}
     />
 
@@ -85,7 +86,7 @@ function Adminstaffs() {
      onChange={handleChange}
     />
 
-    <select name="role" onChange={handleChange} defaultValue="">
+    <select name="role" value={form.role} onChange={handleChange} defaultValue="">
        <option value="" disabled hidden>Select Role</option>
        <option value="teacher">Teacher</option>
       <option value="principal">Principal</option>
@@ -95,12 +96,10 @@ function Adminstaffs() {
     <button>
       Register
     </button>
-    <p>
- Already have an account?
- <a href="/login">
-  Login
- </a>
-</p>
+     <p>
+       Already have an account?{" "}
+       <Link to="/login">Login</Link>
+     </p>
 
    </form>
 

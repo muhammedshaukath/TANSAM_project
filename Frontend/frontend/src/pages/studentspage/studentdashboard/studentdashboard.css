@@ -1,0 +1,131 @@
+.student-layout {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, rgb(4, 12, 24) 0%, rgb(18, 30, 49) 100.2%);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.student-workspace {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.student-hero {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  color: #94a3b8;
+}
+
+.student-info-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.grid-panels {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workspace-panel {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.workspace-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.day-highlight {
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.announcement-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: all 0.25s ease;
+}
+
+.announcement-item:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.announcement-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.announcement-pin {
+  font-size: 0.9rem;
+}
+
+.announcement-date {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.announcement-item h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.announcement-item p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}

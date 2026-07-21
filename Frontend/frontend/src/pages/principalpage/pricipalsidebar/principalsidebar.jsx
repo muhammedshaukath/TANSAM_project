@@ -1,27 +1,23 @@
 import "./principalsidebar.css";
+import { Link, useLocation } from "react-router-dom";
 
 function Principalsidebar() {
+  const location = useLocation();
+  const path = location.pathname;
 
- return(
-
-  <div className="principalsidebar">
-
-   <h3>Princpal Panel</h3>
-
-   <ul>
-
-    <a href="/principaldashboard">Dashboard</a>
-
-    <a href="/principalreports">Reports</a>
-
-    <a href="/principalcomplaints">Complaints</a>
-
-   </ul>
-
-  </div>
-
- );
-
+  return (
+    <div className="principalsidebar">
+      <h3>Principal Panel</h3>
+      <ul>
+        <li>
+          <Link to="/principaldashboard" className={path === "/principaldashboard" ? "active" : ""}>Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/login" onClick={() => { localStorage.clear(); }} className="logout-link">Logout</Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default Principalsidebar;

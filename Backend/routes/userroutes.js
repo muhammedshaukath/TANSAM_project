@@ -9,13 +9,12 @@ const {
     getStudents,
     getStaffs,
     getDashboard,
-    getRoutes,
     getRoles,
     addRole
 } = require("../controller/usercontroller");
 
 const authMiddleware =
-require("../middleware/authMiddleware");
+require("../middleware/authmiddleware");
 
 router.post("/register", register);
 
@@ -49,6 +48,12 @@ router.get(
     "/roles",
     authMiddleware,
     getRoles
+)
+
+router.post(
+    "/roles",
+    authMiddleware,
+    addRole
 )
 
 module.exports = router;

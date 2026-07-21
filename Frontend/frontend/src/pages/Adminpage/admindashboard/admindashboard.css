@@ -1,67 +1,176 @@
-/* ==========================================
-   Admin Dashboard Layout
-   ========================================== */
-
-/* Main container holding the sidebar and the main content area */
-.layout {
+.admin-layout-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f8fafc; /* Light modern background */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 10% 20%, rgb(4, 12, 24) 0%, rgb(18, 30, 49) 100.2%);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Main content area on the right */
 .content {
   flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.admin-workspace {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  gap: 2rem;
 }
 
-/* ==========================================
-   Dashboard Cards Grid
-   ========================================== */
-
-/* Container for the metric cards */
-.cards {
-  display: grid;
-  /* Automatically fits as many cards as possible, minimum width 250px */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  padding: 24px;
+.welcome-banner {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
 }
 
-/* Individual Card Styling */
-.card {
-  background-color: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e2e8f0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Subtle lift effect on hover */
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* Title inside the card */
-.card p {
-  margin: 0;
-  font-size: 0.875rem;
-  color: #64748b; /* Muted gray text */
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Hint: If you plan to add numbers/stats under the text later */
-.card h3 {
-  margin-top: 8px;
-  margin-bottom: 0;
+.welcome-banner h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0f172a; /* Dark text for numbers */
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.welcome-banner p {
+  color: #94a3b8;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.card-body h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.card-body h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.card-trend {
+  font-size: 0.75rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.card-trend.text-green {
+  color: #10b981;
+}
+
+.loading-state {
+  text-align: center;
+  color: #94a3b8;
+  padding: 3rem;
+  font-style: italic;
+}
+
+.data-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 1.5rem;
+}
+
+.data-panel {
+  background: rgba(30, 41, 59, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.data-panel h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+th {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  font-size: 0.9rem;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.empty-msg {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+  padding: 1.5rem 0;
+}
+
+.staff-role-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.staff-role-badge.teacher {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.staff-role-badge.principal {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.staff-role-badge.admin {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
 }

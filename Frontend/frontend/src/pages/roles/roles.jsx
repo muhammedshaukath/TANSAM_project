@@ -109,99 +109,97 @@
 
 
 import "./roles.css";
-import { useEffect,useState } from "react";
-import {
- useNavigate
-} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import BASE_URL from "../../services/api.js";
+function Roles() {
+  const [roles, setRoles] = useState([]);
+  const [roleName, setRoleName] = useState("");
 
-function Roles(){
-
- const [roles,setRoles] =
- useState([]);
-
- const [roleName,setRoleName] =
- useState("");
-
-useEffect(() => {
-  fetch("http://localhost:3001/api/auth/roles", {
-    headers: {
-      authorization: localStorage.getItem("token")
-    }
-  })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP Error ${res.status}`);
+  const fetchRoles = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/auth/roles", {
+        headers: {
+          authorization: localStorage.getItem("token")
+        }
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP Error ${response.status}`);
       }
-      return res.json();
-    })
-    .then(data => {
+      const data = await response.json();
       setRoles(Array.isArray(data) ? data : []);
-    })
-    .catch(err => {
+    } catch (err) {
       console.error(err);
       setRoles([]);
-    });
-}, []);
-
- const addRole = async()=>{
-
-   await fetch(
-    "http://localhost:3001/api/auth/roles",
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":
-        "application/json",
-        authorization:
-        localStorage.getItem(
-          "token"
-        )
-      },
-      body:JSON.stringify({
-        role_name:roleName
-      })
     }
-   );
+  };
 
- };
+  useEffect(() => {
+    fetchRoles();
+  }, []);
 
- return(
-
-  <div class="roles-container">
-
-   <h2>Roles</h2>
-
-   <input
-    placeholder="Role Name"
-    onChange={(e)=>
-      setRoleName(
-       e.target.value
-      )
+  const addRole = async () => {
+    if (!roleName.trim()) {
+      alert("Role name cannot be empty");
+      return;
     }
-   />
+    try {
+      const response = await fetch("http://localhost:3001/api/auth/roles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: localStorage.getItem("token")
+        },
+        body: JSON.stringify({
+          role_name: roleName
+        })
+      });
+      const data = await response.json();
+      alert(data.message || "Role added");
+      setRoleName("");
+      fetchRoles();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to add role");
+    }
+  };
 
-   <button
-    onClick={addRole}
-   >
-    Add Role
-   </button>
+  return (
+    <div className="roles-container">
+      <h2>Roles Management</h2>
+      <div className="role-input-group" style={{ display: 'flex', gap: '10px', width: '40%', justifyContent: 'center', marginBottom: '30px' }}>
+        <input
+          placeholder="Role Name"
+          value={roleName}
+          onChange={(e) => setRoleName(e.target.value)}
+          style={{ width: '60%' }}
+        />
+        <button onClick={addRole} style={{ width: '35%', marginTop: 0 }}>
+          Add Role
+        </button>
+      </div>
 
-   {
-    roles.map(role=>(
-
-      <p key={role.id}>
-        {role.role_name}
-      </p>
-
-    ))
-   }
-
-  </div>
-
- );
-
+      <div className="roles-list" style={{ width: '40%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {roles.map(role => (
+          <div key={role.id} style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            padding: '12px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            color: 'white'
+          }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#38bdf8', marginRight: '15px', boxShadow: '0 0 8px #38bdf8' }}></span>
+            <span style={{ textTransform: 'capitalize', fontWeight: 500 }}>{role.role_name}</span>
+          </div>
+        ))}
+      </div>
+      <Link to="/superadmin-dashboard" style={{ color: '#38bdf8', marginTop: '30px', textDecoration: 'none', fontWeight: 500 }}>
+        &larr; Back to Dashboard
+      </Link>
+    </div>
+  );
 }
 
 export default Roles;

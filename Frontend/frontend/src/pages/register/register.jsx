@@ -1,6 +1,6 @@
 import "./register.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";  // useNavigate is a hook from react-router-dom that allows us to programmatically navigate to different routes in our application. We will use it to redirect the user to the login page after successful registration.
+import { useNavigate, Link } from "react-router-dom";
 import BASE_URL from "../../services/api";
 
 function Register() {
@@ -53,7 +53,7 @@ function Register() {
 
  return(
 
-  <div class="register-container">
+  <div className="register-container">
 
     <h1>School ERP Portal</h1>
 
@@ -78,10 +78,11 @@ function Register() {
     <input
      name="password"
      placeholder="Password"
+     type="password"
      onChange={handleChange}
     />
 
-    <select name="role" onChange={handleChange} required>
+    <select name="role" value={form.role} onChange={handleChange} required>
       <option value="" hidden >Select your Role:</option>
       <option value="user">User</option>
       <option value="principal">Principal</option>
@@ -99,11 +100,9 @@ function Register() {
       Register
     </button>
     <p>
- Already have an account?
- <a href="/login">
-  Login
- </a>
-</p>
+     Already have an account?{" "}
+     <Link to="/login">Login</Link>
+    </p>
 
    </form>
 

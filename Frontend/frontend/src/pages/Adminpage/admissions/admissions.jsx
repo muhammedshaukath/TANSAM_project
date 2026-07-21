@@ -30,26 +30,25 @@ function Admissions() {
 
    e.preventDefault();
 
-   const response = // We use the fetch API to send a POST request to the backend API at the /admissions endpoint. We include the form data in the request body as a JSON string, and set the Content-Type header to application/json.
-   await fetch(
-    `${BASE_URL}/admissions`,
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(form)
+    const response = await fetch(
+     `${BASE_URL}/register`,
+     {
+       method:"POST",
+       headers:{
+         "Content-Type":"application/json"
+       },
+       body:JSON.stringify(form)
+     }
+    );
+
+    const data = await response.json();
+
+    alert(data.message || "Registration response received");
+
+    if (response.ok) {
+      navigate("/admindashboard");
     }
-   );
-
-   const data =
-   await response.json();
-
-   alert(data.message);
-
-   navigate("/"); // After successful registration, we use the navigate function to redirect the user to the login page ("/").
-
- };
+  };
 
  return(
 
@@ -76,6 +75,7 @@ function Admissions() {
     <input
      name="password"
      placeholder="Password"
+     type="password"
      onChange={handleChange}
     />
 
@@ -84,9 +84,9 @@ function Admissions() {
      placeholder="Age"
      onChange={handleChange}
     />
-    <a href="/admindashboard">
-    <button>Register</button>
-    </a>
+    
+    <button type="submit">Register</button>
+    
     <p>
 </p>
 

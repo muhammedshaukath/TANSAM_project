@@ -9,6 +9,7 @@ import Register from "./pages/register/register";
 import Dashboard from "./pages/dashboard/dashboard";
 import Roles from "./pages/roles/roles";
 import Admindashboard from "./pages/Adminpage/admindashboard/admindashboard"  
+import Superadmindashboard from "./pages/superadminpage/superadmindashboard/superadmindashboard";
 import Studentdashboard from "./pages/studentspage/studentdashboard/studentdashboard";
 import Principaldashboard from "./pages/principalpage/principaldashboard/principaldashboard";
 import Teacherdashboard from "./pages/teacherpage/teacherdashboard/teacherdashboard";
@@ -46,6 +47,11 @@ function App() {
     <Route
       path="/roles"
       element={<Roles/>}
+    />
+
+    <Route
+      path="/superadmin-dashboard"
+      element={<Superadmindashboard/>}
     />
 
     <Route

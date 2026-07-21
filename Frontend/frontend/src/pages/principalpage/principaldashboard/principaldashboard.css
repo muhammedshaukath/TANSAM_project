@@ -1,67 +1,188 @@
-/* ==========================================
-   Admin Dashboard Layout
-   ========================================== */
-
-/* Main container holding the sidebar and the main content area */
-.layout {
+.principal-layout {
   display: flex;
   min-height: 100vh;
-  background-color: #f8fafc; /* Light modern background */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 10% 20%, rgb(4, 12, 24) 0%, rgb(18, 30, 49) 100.2%);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Main content area on the right */
-.content {
-  flex: 1;
+.principal-workspace {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
-/* ==========================================
-   Dashboard Cards Grid
-   ========================================== */
-
-/* Container for the metric cards */
-.cards {
-  display: grid;
-  /* Automatically fits as many cards as possible, minimum width 250px */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  padding: 24px;
+.principal-hero {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
-/* Individual Card Styling */
-.card {
-  background-color: #ffffff;
-  padding: 24px;
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  color: #94a3b8;
+}
+
+.principal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e2e8f0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
 }
 
-/* Subtle lift effect on hover */
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.principal-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.5rem;
 }
 
-/* Title inside the card */
-.card p {
-  margin: 0;
-  font-size: 0.875rem;
-  color: #64748b; /* Muted gray text */
+@media (max-width: 900px) {
+  .principal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workspace-panel {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.workspace-panel h2 {
+  font-size: 1.25rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: #fff;
+  margin-bottom: 1.25rem;
 }
 
-/* Hint: If you plan to add numbers/stats under the text later */
-.card h3 {
-  margin-top: 8px;
-  margin-bottom: 0;
-  font-size: 1.75rem;
+.designation-tag {
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #0f172a; /* Dark text for numbers */
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.designation-tag.teacher {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.designation-tag.principal {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+.designation-tag.admin {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.complaints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.complaint-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.complaint-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.complaint-from {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.complaint-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.complaint-status.pending {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.complaint-status.resolved {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.complaint-card h4 {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.complaint-card p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.resolve-btn {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.resolve-btn:hover {
+  background: #10b981;
+  color: #fff;
+}
+
+.font-bold {
+  font-weight: 600;
+  color: #fff;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #64748b;
+  padding: 1.5rem 0;
+  font-style: italic;
 }

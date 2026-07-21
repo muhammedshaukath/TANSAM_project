@@ -18,7 +18,7 @@ function Header() {
    </h2>
 
    <h4>
-    {user?.Name}
+    {user?.name}
    </h4>
 
   </div>

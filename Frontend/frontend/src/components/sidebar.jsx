@@ -1,31 +1,29 @@
 import "./sidebar.css";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
+  const location = useLocation();
+  const path = location.pathname;
 
- return(
-
-  <div className="sidebar">
-
-   <h3>Admin Panel</h3>
-
-   <ul>
-
-    <a href="/dashboard">Dashboard</a>
-
-    <a href="/roles">Roles</a>
-
-    <a href="/users">Users</a>
-
-    <a href="/admindashboard">Admins</a>
-
-    <a href="/settings">Settings</a>
-
-   </ul>
-
-  </div>
-
- );
-
+  return (
+    <div className="sidebar">
+      <h3>Control Panel</h3>
+      <ul>
+        <li>
+          <Link to="/dashboard" className={path === "/dashboard" ? "active" : ""}>Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/roles" className={path === "/roles" ? "active" : ""}>Roles</Link>
+        </li>
+        <li>
+          <Link to="/admindashboard" className={path === "/admindashboard" ? "active" : ""}>Admins</Link>
+        </li>
+        <li>
+          <Link to="/login" onClick={() => { localStorage.clear(); }} className="logout-link">Logout</Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default Sidebar;
